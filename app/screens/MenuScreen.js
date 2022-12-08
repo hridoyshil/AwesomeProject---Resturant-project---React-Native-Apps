@@ -1,7 +1,8 @@
 import React, { useEffect } from 'react';
-import { View, Text, Button } from 'react-native';
+import { View, Text, Button, FlatList } from 'react-native';
 import { connect } from 'react-redux';
 import { getDishes } from '../redux/actionCreators';
+import Menuitem from '../components/Menuitem';
 
 const mapStateToProps = state => {
     return {
@@ -20,8 +21,15 @@ const MenuScreen = (props) => {
         props.getDishes();
     }, []);
     return (
-        <View><Text>Menu Screen</Text>
-            <Button onPress={() => props.navigation.navigate('Dish Detail')} title="Press" /></View>
+        <View>
+            <FlatList
+                data={props.dishes}
+                renderItem={
+                    ({ item }) => (<Menuitem item={item} />)
+                }
+                keyExtractor={item => item.id.toString()}
+            />
+        </View>
     )
 }
 

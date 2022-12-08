@@ -1,4 +1,5 @@
 import * as actionTypes from './actionTypes';
+import axios from 'axios';
 
 export const loadDishes = dishes => {
     return {
@@ -8,5 +9,8 @@ export const loadDishes = dishes => {
 }
 
 export const getDishes = () => dispatch => {
+    axios.get("https://awesomeproject-db746-default-rtdb.firebaseio.com/dishes.json")
+        .then(respones => dispatch(loadDishes(respones.data)))
+        .catch(err => console.log(err))
 
 }
