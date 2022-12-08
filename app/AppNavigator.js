@@ -3,10 +3,10 @@ import HomeScreen from './screens/HomeScreen';
 import MenuScreen from './screens/MenuScreen';
 import DishDetailScreen from './screens/DishDetailScreen';
 import { View, Text } from 'react-native';
-import Icon from './components/Icon';
-
 // import { createDrawerNavigator } from '@react-navigation/drawer';
 import { createStackNavigator } from '@react-navigation/stack'
+import Icon from './components/Icon';
+
 
 // const Drawer = createDrawerNavigator();
 const Stack = createStackNavigator();
@@ -29,7 +29,6 @@ const MenuStack = () => {
         </Stack.Navigator>
     )
 }
-
 
 const AppNavigator = () => {
     return (
