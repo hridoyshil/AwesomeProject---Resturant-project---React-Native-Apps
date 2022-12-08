@@ -25,7 +25,7 @@ const MenuScreen = (props) => {
             <FlatList
                 data={props.dishes}
                 renderItem={
-                    ({ item }) => (<Menuitem item={item} />)
+                    ({ item }) => (<Menuitem item={item} selectDish={() => props.navigation.navigate('Dish Detail', { dish: item })} />)
                 }
                 keyExtractor={item => item.id.toString()}
             />
