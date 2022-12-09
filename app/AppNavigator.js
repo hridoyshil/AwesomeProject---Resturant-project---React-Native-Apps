@@ -7,6 +7,7 @@ import { View, Text } from 'react-native';
 import { createStackNavigator } from '@react-navigation/stack'
 import Icon from './components/Icon';
 import { useNavigation } from '@react-navigation/native';
+import Favouritescreen from './screens/Favouritescreen';
 
 
 
@@ -41,11 +42,39 @@ const MenuStack = () => {
     )
 }
 
+const FavStack = () => {
+    const navigation = useNavigation();
+    return (
+        <Stack.Navigator
+            screenOptions={{
+                headerRight: () => (<Icon
+                    action={() => navigation.toggleDrawer()}
+                    name="ios-menu"
+                    color="black"
+                    size={24}
+                    iconStyle={{
+                        paddingRight: 15
+                    }}
+                />),
+                headerStyle: {
+                    backgroundColor: '#F53B50',
+                },
+                headerTintColor: '#fff',
+                headerTitleStyle: {
+                    fontWeight: 'bold',
+                }
+            }}>
+            <Stack.Screen name='Favourites' component={Favouritescreen} />
+        </Stack.Navigator>
+    )
+}
+
 const AppNavigator = () => {
     return (
         // <Drawer.Navigator initialRouteName='Home'>
         //     <Drawer.Screen name='Home' component={HomeScreen} />
         //     <Drawer.Screen name='Menu' component={MenuScreen} />
+        //     <Drawer.Screen name='Favourites' component={FavStack} />
         // </Drawer.Navigator>
 
         < MenuStack />
