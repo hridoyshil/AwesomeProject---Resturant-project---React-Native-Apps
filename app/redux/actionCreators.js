@@ -14,3 +14,11 @@ export const getDishes = () => dispatch => {
         .catch(err => console.log(err))
 
 }
+
+
+export const addToFavourites = dish => {
+    return {
+        type: actionTypes.ADD_TO_FAVOURITES,
+        payload: dish,
+    }
+}

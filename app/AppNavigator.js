@@ -14,6 +14,7 @@ import { useNavigation } from '@react-navigation/native';
 const Stack = createStackNavigator();
 
 const MenuStack = () => {
+    const navigation = useNavigation();
     return (
         <Stack.Navigator
             screenOptions={{
