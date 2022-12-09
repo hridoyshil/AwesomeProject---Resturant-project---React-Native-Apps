@@ -6,6 +6,8 @@ import { View, Text } from 'react-native';
 // import { createDrawerNavigator } from '@react-navigation/drawer';
 import { createStackNavigator } from '@react-navigation/stack'
 import Icon from './components/Icon';
+import { useNavigation } from '@react-navigation/native';
+
 
 
 // const Drawer = createDrawerNavigator();
@@ -15,7 +17,15 @@ const MenuStack = () => {
     return (
         <Stack.Navigator
             screenOptions={{
-                headerRight: () => (<Icon />),
+                headerRight: () => (<Icon
+                    action={() => navigation.toggleDrawer()}
+                    name="ios-menu"
+                    color="black"
+                    size={24}
+                    iconStyle={{
+                        paddingRight: 15
+                    }}
+                />),
                 headerStyle: {
                     backgroundColor: '#F53B50',
                 },
